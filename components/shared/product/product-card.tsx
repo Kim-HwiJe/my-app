@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Product } from '@/types' // 지금 단계에서는 import만 하고 ↓ any 그대로 둠
 
 const ProductCard = ({ product }: { product: any }) => {
   return (
@@ -18,15 +19,18 @@ const ProductCard = ({ product }: { product: any }) => {
           />
         </Link>
       </CardHeader>
+
       <CardContent className="p-4 grid gap-4">
         <div className="grid gap-1.5 text-sm leading-4">
           <p className="text-xs leading-3">{product.brand}</p>
         </div>
+
         <div className="grid gap-1.5 text-sm leading-4">
           <Link href={`/product/${product.slug}`}>
             <h2 className="text-sm font-medium">{product.name}</h2>
           </Link>
         </div>
+
         <div className="flex-between gap-4">
           <p>{product.rating} stars</p>
           {product.stock > 0 ? (
