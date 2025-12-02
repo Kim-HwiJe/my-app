@@ -3,7 +3,9 @@ import Link from 'next/link'
 import React from 'react'
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Product } from '@/types' // 지금 단계에서는 import만 하고 ↓ any 그대로 둠
+import { Product } from '@/types'
+
+import ProductPrice from './product-price'
 
 const ProductCard = ({ product }: { product: any }) => {
   return (
@@ -34,7 +36,7 @@ const ProductCard = ({ product }: { product: any }) => {
         <div className="flex-between gap-4">
           <p>{product.rating} stars</p>
           {product.stock > 0 ? (
-            <p className="font-bold">${product.price}</p>
+            <ProductPrice value={Number(product.price)} />
           ) : (
             <p className="text-destructive">Out of Stock</p>
           )}
