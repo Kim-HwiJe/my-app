@@ -1,4 +1,20 @@
+import { hashSync } from 'bcryptjs'
+
 const sampleData = {
+  users: [
+    {
+      name: 'John',
+      email: 'admin@example.com',
+      password: hashSync('123456', 10),
+      role: 'admin',
+    },
+    {
+      name: 'Jane',
+      email: 'jane@example.com',
+      password: hashSync('123456', 10),
+      role: 'user',
+    },
+  ],
   products: [
     {
       name: 'LOOSE FIT PIQUE JOGGER SWEATSHIRT',
@@ -35,14 +51,15 @@ const sampleData = {
       slug: 'showerproof-sportsuit-track-pants',
       category: 'Track Pants',
       images: ['/assets/images/p3-1.jpeg', '/assets/images/p3-2.jpeg'],
-
       price: '149.95',
       brand: 'Nike',
       rating: '4.9',
       numReviews: 3,
       stock: 0,
       description:
-        'Stay stylish, whatever the weather. These showerproof track pants are here to protect you from the rain. ',
+        'Stay stylish, whatever the weather. These showerproof track pants are here to protect you from the rain.',
+      isFeatured: false,
+      banner: '',
     },
     {
       name: "MEN'S LACOSTE SPORT FRENCH CAPSULE TRACKSUIT PANTS",
@@ -55,7 +72,9 @@ const sampleData = {
       numReviews: 5,
       stock: 10,
       description:
-        'A tricolour design brings a distinctive edge to these lightweight tracksuit pants made of diamond taffeta. ',
+        'A tricolour design brings a distinctive edge to these lightweight tracksuit pants made of diamond taffeta.',
+      isFeatured: false,
+      banner: '',
     },
   ],
 }
