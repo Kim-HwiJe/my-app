@@ -1,11 +1,12 @@
+'use client'
+
 import { MenuIcon, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { Button } from '@/components/ui/button'
 import { APP_NAME } from '@/lib/constants'
 
-const Header = async () => {
+export default function Header() {
   return (
     <header className="w-full border-b">
       <div className="wrapper flex-between">
@@ -20,6 +21,7 @@ const Header = async () => {
             {APP_NAME}
           </Link>
         </div>
+
         <div className="space-x-2">
           <Button asChild variant="ghost">
             <Link href="/cart">
@@ -27,9 +29,10 @@ const Header = async () => {
               Cart
             </Link>
           </Button>
+
           <Button asChild>
-            <Link href="/cart">
-              <ShoppingCart />
+            <Link href="/sign-in">
+              <MenuIcon />
               Sign In
             </Link>
           </Button>
@@ -38,5 +41,3 @@ const Header = async () => {
     </header>
   )
 }
-
-export default Header
